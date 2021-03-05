@@ -7,6 +7,11 @@
 [![Flutter](https://img.shields.io/badge/_Flutter_-App-grey.svg?&logo=Flutter&logoColor=white&labelColor=blue)](https://github.com/vijayinyoutube/Bojana_Food_Delivery_App)
 
 
+<p align="center">
+<img src="https://user-images.githubusercontent.com/58719230/110121263-2e6f6580-7de4-11eb-95ea-4e00ae18906d.png" width="100%">
+</p>
+
+
 ## Flutter
 [Flutter](https://flutter.dev/) is a crossplatfrom UI tool kit that helps in developing native Android and iOS app from a single code base.
 
