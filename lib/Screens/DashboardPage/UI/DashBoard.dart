@@ -17,7 +17,7 @@ class DashboardPageClass extends StatelessWidget {
           children: [
             heightSpacer(15.00),
             buildLocation(),
-            heightSpacer(15.00),
+            heightSpacer(10.00),
             buildSearchContainer(),
           ],
         ),
