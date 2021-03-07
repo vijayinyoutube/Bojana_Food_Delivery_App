@@ -1,7 +1,7 @@
 import 'package:bojana/Declarations/Global/GlobalDeclarations.dart';
 import 'package:bojana/GeneralWidgets/GWidget.dart';
-import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/material.dart';
 
 Widget buildSearchContainer() => Container(
       child: Container(
