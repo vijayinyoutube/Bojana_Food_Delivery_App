@@ -23,6 +23,12 @@ To know more awesome content about Flutter.,
 
 Visit my channel 👉 : https://www.youtube.com/channel/UCBC_Z7jla1GSITcqLKAtPxQ
 
+## Dependencies
+```pubspec.yaml
+  google_fonts: ^1.1.0
+  hexcolor: ^1.0.6
+```
+
 ## Sample Results
 
 Results | #1 | #2 |
