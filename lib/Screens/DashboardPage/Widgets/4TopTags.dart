@@ -6,7 +6,7 @@ Widget buildTopSearchTags() => Container(
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: [
-          buildTag("Cusines 🔻"),
+          buildTag("Cusines"),
           buildTag("Ratings 4.0+"),
           buildTag("Fast Delivery"),
           buildTag("Most Popular"),

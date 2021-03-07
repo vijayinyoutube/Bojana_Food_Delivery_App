@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '2Location.dart';
 import '3Search.dart';
 import '4TopTags.dart';
+import '5QuickSelect.dart';
 
 class BodyClass extends StatefulWidget {
   BodyClass({Key key}) : super(key: key);
@@ -26,7 +27,9 @@ class _BodyClassState extends State<BodyClass> {
             heightSpacer(10.00),
             buildSearchContainer(),
             heightSpacer(15.00),
-            buildTopSearchTags()
+            buildTopSearchTags(),
+            heightSpacer(15.00),
+            buildQuickSelect(),
           ],
         ),
       ),
