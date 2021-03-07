@@ -23,6 +23,16 @@ Widget buildRow2() => Container();
 Widget buildItem(String itemName, String imagePath) => Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: [],
+        children: [
+          Container(
+            width: 150,
+            height: 150,
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(150)),
+            child: Image.asset(
+              imagePath,
+              fit: BoxFit.contain,
+            ),
+          ),
+        ],
       ),
     );
