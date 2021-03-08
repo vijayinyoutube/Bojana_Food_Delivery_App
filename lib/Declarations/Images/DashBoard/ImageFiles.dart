@@ -10,5 +10,4 @@ List<String> dashboardImages = [
   "assets/Images/Dashboard/9.jpg",
   "assets/Images/Dashboard/10.jpg",
   "assets/Images/Dashboard/11.jpg",
-  "assets/Images/Dashboard/Assured.png",
 ];
