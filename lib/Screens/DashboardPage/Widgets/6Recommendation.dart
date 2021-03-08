@@ -1,3 +1,4 @@
+import 'package:bojana/Declarations/Global/GlobalDeclarations.dart';
 import 'package:bojana/Declarations/Images/DashBoard/ImageFiles.dart';
 import 'package:bojana/Declarations/DashboardDeclr.dart';
 import 'package:bojana/GeneralWidgets/GWidget.dart';
@@ -89,8 +90,8 @@ Widget buildRecommendationCard(BuildContext context) => Container(
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(3.5),
-                              topLeft: Radius.circular(3.5),
+                              bottomLeft: Radius.circular(5.0),
+                              topLeft: Radius.circular(5.0),
                             ),
                             color: offerColor,
                           ),
@@ -111,6 +112,64 @@ Widget buildRecommendationCard(BuildContext context) => Container(
                       ),
                     ],
                   ),
+                  Container(
+                    width: 115,
+                    height: 25,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(150),
+                        topLeft: Radius.circular(150),
+                        bottomRight: Radius.circular(50.00),
+                        topRight: Radius.circular(50.00),
+                      ),
+                      color: assuredContainerColor.withOpacity(0.28),
+                    ),
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 30.00,
+                          height: 30.00,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(150),
+                              color: primaryColor),
+                          child: Center(
+                            child: Text(
+                              "B",
+                              style: GoogleFonts.lora(
+                                textStyle: TextStyle(
+                                  fontSize: 20.00,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white,
+                                  fontStyle: FontStyle.italic,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          // color: Colors.blue,
+                          child: Row(
+                            children: [
+                              Text(
+                                " Assured ",
+                                style: GoogleFonts.lora(
+                                  textStyle: TextStyle(
+                                    fontStyle: FontStyle.italic,
+                                    color: assuredCTextColor,
+                                  ),
+                                ),
+                              ),
+                              Icon(
+                                Icons.check,
+                                size: 17.50,
+                                color: assuredCTextColor,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
                 ],
               ),
             ),
