@@ -4,6 +4,7 @@ import '2Location.dart';
 import '3Search.dart';
 import '4TopTags.dart';
 import '5QuickSelect.dart';
+import '6Recommendation.dart';
 
 class BodyClass extends StatefulWidget {
   BodyClass({Key key}) : super(key: key);
@@ -28,8 +29,10 @@ class _BodyClassState extends State<BodyClass> {
             buildSearchContainer(),
             heightSpacer(15.00),
             buildTopSearchTags(),
-            heightSpacer(15.00),
+            heightSpacer(20.00),
             buildQuickSelect(),
+            heightSpacer(25.00),
+            buildRecommendationCard(context),
           ],
         ),
       ),
