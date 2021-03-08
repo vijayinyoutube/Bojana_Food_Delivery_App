@@ -7,7 +7,7 @@ class DashboardPageClass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BodyClass(),
+      body: SingleChildScrollView(child: BodyClass()),
     );
   }
 }

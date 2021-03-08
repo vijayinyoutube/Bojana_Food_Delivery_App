@@ -1,7 +1,7 @@
-import 'package:bojana/Declarations/Images/DashBoard/ImageFiles.dart';
+import 'package:bojana/Repository/Dashboard/CategoryRepo.dart';
 import 'package:bojana/GeneralWidgets/GWidget.dart';
-import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/material.dart';
 
 Widget buildQuickSelect() => Container(
       child: Column(
@@ -17,10 +17,9 @@ Widget buildRow1() => Container(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          buildItem("Fresh", dashboardImages[2]),
-          buildItem("Gravy", dashboardImages[4]),
-          buildItem("Masala", dashboardImages[6]),
-          buildItem("Veggy", dashboardImages[7]),
+          for (var i = 0; i < 4; i++)
+            buildItem(
+                topCategories[i].categoryName, topCategories[i].imagePath),
         ],
       ),
     );
@@ -29,10 +28,9 @@ Widget buildRow2() => Container(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          buildItem("Non-Veg", dashboardImages[1]),
-          buildItem("Healthy", dashboardImages[5]),
-          buildItem("Dry", dashboardImages[7]),
-          buildItem("Crunch", dashboardImages[0]),
+          for (var i = 4; i < 8; i++)
+            buildItem(
+                topCategories[i].categoryName, topCategories[i].imagePath),
         ],
       ),
     );
@@ -51,8 +49,7 @@ Widget buildItem(String itemName, String imagePath) => Container(
           Text(
             itemName,
             style: GoogleFonts.lora(
-              textStyle:
-                  TextStyle(fontSize: 12.5, fontWeight: FontWeight.w500),
+              textStyle: TextStyle(fontSize: 12.5, fontWeight: FontWeight.w500),
             ),
           ),
         ],
