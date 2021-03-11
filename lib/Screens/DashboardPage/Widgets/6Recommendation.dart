@@ -1,9 +1,28 @@
 import 'package:bojana/Declarations/Global/GlobalDeclarations.dart';
-import 'package:bojana/Declarations/Images/DashBoard/ImageFiles.dart';
+import 'package:bojana/Repository/Dashboard/RestaurantRepo.dart';
 import 'package:bojana/Declarations/DashboardDeclr.dart';
 import 'package:bojana/GeneralWidgets/GWidget.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
+
+Widget buildRecommendationCard(BuildContext context) => Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          buildRecommendedText(),
+          heightSpacer(10.00),
+          for (var i = 0; i < 3; i++)
+            Container(
+              child: Column(
+                children: [
+                  buildRecmdDetailedCard(context, i),
+                  heightSpacer(10.00),
+                ],
+              ),
+            ),
+        ],
+      ),
+    );
 
 Widget buildRecommendedText() => Container(
       child: Text(
@@ -17,18 +36,8 @@ Widget buildRecommendedText() => Container(
         ),
       ),
     );
-Widget buildRecommendationCard(BuildContext context) => Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          buildRecommendedText(),
-          heightSpacer(10.00),
-          buildRecmdDetailedCard(context),
-        ],
-      ),
-    );
 
-Widget buildRecmdDetailedCard(BuildContext context) => Container(
+Widget buildRecmdDetailedCard(BuildContext context, int index) => Container(
       width: MediaQuery.of(context).size.width,
       height: 250,
       decoration: BoxDecoration(
@@ -43,10 +52,10 @@ Widget buildRecmdDetailedCard(BuildContext context) => Container(
           children: [
             Stack(
               children: [
-                buildImage(context),
-                buildDeliveryTime(),
-                buildFavIcon(),
-                buildOfferTag(),
+                buildImage(context, index),
+                buildDeliveryTime(index),
+                buildFavIcon(index),
+                buildOfferTag(index),
               ],
             ),
             buildRecmdTags(),
@@ -55,7 +64,7 @@ Widget buildRecmdDetailedCard(BuildContext context) => Container(
       ),
     );
 
-Widget buildImage(BuildContext context) => Container(
+Widget buildImage(BuildContext context, int index) => Container(
       width: MediaQuery.of(context).size.width,
       height: 225 / 1.75,
       child: ClipRRect(
@@ -64,13 +73,13 @@ Widget buildImage(BuildContext context) => Container(
           topRight: Radius.circular(10.00),
         ),
         child: Image.asset(
-          dashboardImages[8],
+          restaurantDetails[index].imagePath,
           fit: BoxFit.fill,
         ),
       ),
     );
 
-Widget buildDeliveryTime() => Positioned(
+Widget buildDeliveryTime(int index) => Positioned(
       top: 15,
       left: 20,
       child: Container(
@@ -79,7 +88,7 @@ Widget buildDeliveryTime() => Positioned(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 1.5, horizontal: 1.5),
           child: Text(
-            " 30 mins ",
+            " ${restaurantDetails[index].deliveryTime} mins ",
             style: GoogleFonts.lora(
               textStyle: TextStyle(),
             ),
@@ -87,23 +96,32 @@ Widget buildDeliveryTime() => Positioned(
         ),
       ),
     );
-Widget buildFavIcon() => Positioned(
+Widget buildFavIcon(int index) => Positioned(
       top: 15,
       right: 20,
       child: Container(
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50), color: Colors.grey[350]),
+            borderRadius: BorderRadius.circular(50),
+            color: restaurantDetails[index].isFavourite
+                ? Colors.pink[100]
+                : Colors.grey[350]),
         child: Padding(
           padding: const EdgeInsets.all(5.5),
           child: Icon(
-            Icons.favorite_border,
-            color: Colors.grey[600],
+            restaurantDetails[index].isFavourite
+                ? Icons.favorite
+                : Icons.favorite_border,
+            color: restaurantDetails[index].isFavourite
+                ? Colors.pink
+                : Colors.grey[600],
             size: 15.00,
           ),
         ),
       ),
     );
-Widget buildOfferTag() => Positioned(
+
+
+Widget buildOfferTag(int index) => Positioned(
       bottom: 15,
       right: 0,
       child: Container(
@@ -117,7 +135,7 @@ Widget buildOfferTag() => Positioned(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 2.5, horizontal: 5.5),
           child: Text(
-            " Up to ₹100 OFF ",
+            " Up to ₹${restaurantDetails[index].offers} OFF ",
             style: GoogleFonts.lora(
               textStyle: TextStyle(
                 fontWeight: FontWeight.w500,
@@ -136,8 +154,6 @@ Widget buildRecmdTags() => Row(
       ],
     );
 
-
-    
 Widget buildBAssuredTag() => Container(
       width: 115,
       height: 25,

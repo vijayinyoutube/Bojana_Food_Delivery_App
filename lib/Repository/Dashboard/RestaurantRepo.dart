@@ -22,7 +22,7 @@ class Restaurant {
   });
 }
 
-List<Restaurant> myCall = [
+List<Restaurant> restaurantDetails = [
   Restaurant(
     restaurantName: "Oyalo Pizza",
     items: "Ice Cream, Juices, Pizza",
@@ -32,7 +32,7 @@ List<Restaurant> myCall = [
     tags: [1, 1, 1, 0, 0],
     isFavourite: false,
     deliveryTime: "30",
-    imagePath: "assets/Images/Dashboard/9.png",
+    imagePath: "assets/Images/Dashboard/9.jpg",
   ),
   Restaurant(
     restaurantName: "Juicy World",
@@ -43,7 +43,7 @@ List<Restaurant> myCall = [
     tags: [0, 0, 1, 1, 0],
     isFavourite: false,
     deliveryTime: "32",
-    imagePath: "assets/Images/Dashboard/10.png",
+    imagePath: "assets/Images/Dashboard/10.jpg",
   ),
   Restaurant(
     restaurantName: "Briyani Mess",
@@ -54,6 +54,6 @@ List<Restaurant> myCall = [
     tags: [1, 1, 0, 0, 1],
     isFavourite: true,
     deliveryTime: "25",
-    imagePath: "assets/Images/Dashboard/11.png",
+    imagePath: "assets/Images/Dashboard/11.jpg",
   ),
 ];
