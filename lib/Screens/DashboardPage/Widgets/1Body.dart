@@ -1,10 +1,10 @@
 import 'package:bojana/GeneralWidgets/GWidget.dart';
 import 'package:flutter/material.dart';
-import '2Location.dart';
-import '3Search.dart';
-import '4TopTags.dart';
-import '5QuickSelect.dart';
 import '6Recommendation.dart';
+import '5QuickSelect.dart';
+import '2Location.dart';
+import '4TopTags.dart';
+import '3Search.dart';
 
 class BodyClass extends StatefulWidget {
   BodyClass({Key key}) : super(key: key);
