@@ -1,10 +1,10 @@
 class Category {
-  final String imagePath;
   final String categoryName;
+  final String imagePath;
 
   Category({
-    this.imagePath,
     this.categoryName,
+    this.imagePath,
   });
 }
 

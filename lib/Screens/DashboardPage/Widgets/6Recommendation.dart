@@ -39,7 +39,6 @@ Widget buildRecommendedText() => Container(
 
 Widget buildRecmdDetailedCard(BuildContext context, int index) => Container(
       width: MediaQuery.of(context).size.width,
-      //  height: 250,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.00),
       ),
@@ -65,7 +64,7 @@ Widget buildRecmdDetailedCard(BuildContext context, int index) => Container(
                 child: Column(
                   children: [
                     buildRestaurantDetails(index, context),
-                    buildRecmdTags(),
+                    buildRecmdTags(index),
                   ],
                 ),
               ),
@@ -240,12 +239,12 @@ Widget buildRestaurantDetails(int index, BuildContext context) => Container(
       ),
     );
 
-Widget buildRecmdTags() => Row(
+Widget buildRecmdTags(int index) => Row(
       children: [
-        buildBAssuredTag(),
-        buildTag("Combo", comboContainerColor, comboTextColor),
-         buildTag("MustTry", mustTryContainerColor, mustTryCTextColor),
-          buildTag("Combo", comboContainerColor, comboTextColor),
+        if (restaurantDetails[index].isAssured) buildBAssuredTag(),
+        for (var i = 0; i < 4; i++)
+          if (restaurantDetails[index].tags[i] == 1)
+            buildTag(tagLists[i], containerColor[i], txtColor[i]),
       ],
     );
 
@@ -306,20 +305,23 @@ Widget buildBAssuredTag() => Container(
       ),
     );
 
-Widget buildTag(String tag, Color tagCntColor, Color tagTxtColor) => Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5.0),
-        color: tagCntColor.withOpacity(0.45),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(3.0),
-        child: Text(
-          tag,
-          style: GoogleFonts.lora(
-            textStyle: TextStyle(
-              fontSize: 12.00,
-              fontStyle: FontStyle.italic,
-              color: tagTxtColor,
+Widget buildTag(String tag, Color tagCntColor, Color tagTxtColor) => Padding(
+      padding: const EdgeInsets.only(left: 2.5),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5.0),
+          color: tagCntColor.withOpacity(0.45),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(3.0),
+          child: Text(
+            tag,
+            style: GoogleFonts.lora(
+              textStyle: TextStyle(
+                fontSize: 12.00,
+                fontStyle: FontStyle.italic,
+                color: tagTxtColor,
+              ),
             ),
           ),
         ),

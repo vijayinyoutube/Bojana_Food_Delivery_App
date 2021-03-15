@@ -1,59 +1,64 @@
 class Restaurant {
   final String restaurantName;
-  final String items;
-  final String ratings;
-  final String offers;
+  final String deliveryTime;
+  final bool isFavourite;
+  final String imagePath;
   final String startsAt;
   final List<int> tags;
-  final bool isFavourite;
-  final String deliveryTime;
-  final String imagePath;
+  final bool isAssured;
+  final String ratings;
+  final String offers;
+  final String items;
 
   Restaurant({
     this.restaurantName,
-    this.items,
+    this.deliveryTime,
+    this.isFavourite,
+    this.imagePath,
+    this.isAssured,
+    this.startsAt,
     this.ratings,
     this.offers,
-    this.startsAt,
+    this.items,
     this.tags,
-    this.isFavourite,
-    this.deliveryTime,
-    this.imagePath,
   });
 }
 
 List<Restaurant> restaurantDetails = [
   Restaurant(
-    restaurantName: "Oyalo Pizza",
+    imagePath: "assets/Images/Dashboard/9.jpg",
     items: "Ice Cream, Juices, Pizza",
+    restaurantName: "Oyalo Pizza",
+    isFavourite: false,
+    tags: [1, 1, 0, 0],
+    deliveryTime: "30",
+    isAssured: true,
+    startsAt: "150",
     ratings: "4.1",
     offers: "100",
-    startsAt: "150",
-    tags: [1, 1, 1, 0, 0],
-    isFavourite: false,
-    deliveryTime: "30",
-    imagePath: "assets/Images/Dashboard/9.jpg",
   ),
   Restaurant(
-    restaurantName: "Juicy World",
+    imagePath: "assets/Images/Dashboard/10.jpg",
     items: "Fresh Juices, Fruits",
+    restaurantName: "Juicy World",
+    isFavourite: false,
+    tags: [0, 1, 1, 0],
+    deliveryTime: "32",
+    isAssured: false,
+    startsAt: "100",
     ratings: "4.3",
     offers: "75",
-    startsAt: "100",
-    tags: [0, 0, 1, 1, 0],
-    isFavourite: false,
-    deliveryTime: "32",
-    imagePath: "assets/Images/Dashboard/10.jpg",
   ),
   Restaurant(
-    restaurantName: "Briyani Mess",
+    imagePath: "assets/Images/Dashboard/11.jpg",
     items: "Briyani, Parotta, Fried Rice",
+    restaurantName: "Briyani Mess",
+    tags: [1, 0, 0, 1],
+    deliveryTime: "25",
+    isFavourite: true,
+    isAssured: true,
+    startsAt: "120",
     ratings: "4.5",
     offers: "50",
-    startsAt: "120",
-    tags: [1, 1, 0, 0, 1],
-    isFavourite: true,
-    deliveryTime: "25",
-    imagePath: "assets/Images/Dashboard/11.jpg",
   ),
 ];

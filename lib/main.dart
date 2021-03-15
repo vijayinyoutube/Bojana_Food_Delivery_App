@@ -1,6 +1,6 @@
+import 'Screens/DashboardPage/UI/DashBoard.dart';
 import 'package:flutter/material.dart';
 
-import 'Screens/DashboardPage/UI/DashBoard.dart';
 
 void main() {
   runApp(MyApp());
