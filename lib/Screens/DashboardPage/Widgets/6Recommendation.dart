@@ -39,7 +39,7 @@ Widget buildRecommendedText() => Container(
 
 Widget buildRecmdDetailedCard(BuildContext context, int index) => Container(
       width: MediaQuery.of(context).size.width,
-      height: 250,
+      //  height: 250,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.00),
       ),
@@ -58,7 +58,18 @@ Widget buildRecmdDetailedCard(BuildContext context, int index) => Container(
                 buildOfferTag(index),
               ],
             ),
-            buildRecmdTags(),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                  horizontal: 20.00, vertical: 10.00),
+              child: Container(
+                child: Column(
+                  children: [
+                    buildRestaurantDetails(index, context),
+                    buildRecmdTags(),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -120,7 +131,6 @@ Widget buildFavIcon(int index) => Positioned(
       ),
     );
 
-
 Widget buildOfferTag(int index) => Positioned(
       bottom: 15,
       right: 0,
@@ -147,16 +157,100 @@ Widget buildOfferTag(int index) => Positioned(
       ),
     );
 
+Widget buildRestaurantDetails(int index, BuildContext context) => Container(
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                restaurantDetails[index].restaurantName,
+                style: GoogleFonts.lora(
+                  textStyle: TextStyle(
+                    fontSize: 20.00,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+              Row(
+                children: [
+                  Icon(
+                    Icons.star,
+                    color: primaryColor,
+                    size: 17.5,
+                  ),
+                  RichText(
+                    text: TextSpan(
+                      text: " ${(restaurantDetails[index].ratings)}",
+                      style: GoogleFonts.lora(
+                        textStyle: TextStyle(
+                          fontSize: 15.00,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: '/5',
+                          style: GoogleFonts.lora(
+                            textStyle: TextStyle(
+                              fontSize: 10.50,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          heightSpacer(3.5),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                restaurantDetails[index].items,
+                style: GoogleFonts.lora(
+                  textStyle: TextStyle(
+                    fontSize: 15.00,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.grey,
+                  ),
+                ),
+              ),
+              Text(
+                "Starts at  ₹${restaurantDetails[index].startsAt}",
+                style: GoogleFonts.lora(
+                  textStyle: TextStyle(
+                    fontSize: 14.00,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.grey,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          heightSpacer(3.5),
+          Divider(
+            thickness: 0.25,
+            color: Colors.grey,
+          ),
+        ],
+      ),
+    );
+
 Widget buildRecmdTags() => Row(
       children: [
         buildBAssuredTag(),
-        buildComboTag(),
+        buildTag("Combo", comboContainerColor, comboTextColor),
+         buildTag("MustTry", mustTryContainerColor, mustTryCTextColor),
+          buildTag("Combo", comboContainerColor, comboTextColor),
       ],
     );
 
 Widget buildBAssuredTag() => Container(
-      width: 115,
-      height: 25,
+      width: 90,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(150),
@@ -169,8 +263,8 @@ Widget buildBAssuredTag() => Container(
       child: Row(
         children: [
           Container(
-            width: 30.00,
-            height: 30.00,
+            width: 20.00,
+            height: 20.00,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(150), color: primaryColor),
             child: Center(
@@ -178,7 +272,7 @@ Widget buildBAssuredTag() => Container(
                 "B",
                 style: GoogleFonts.lora(
                   textStyle: TextStyle(
-                    fontSize: 20.00,
+                    fontSize: 15.00,
                     fontWeight: FontWeight.w500,
                     color: Colors.white,
                     fontStyle: FontStyle.italic,
@@ -194,6 +288,7 @@ Widget buildBAssuredTag() => Container(
                   " Assured ",
                   style: GoogleFonts.lora(
                     textStyle: TextStyle(
+                      fontSize: 12.00,
                       fontStyle: FontStyle.italic,
                       color: assuredCTextColor,
                     ),
@@ -211,19 +306,20 @@ Widget buildBAssuredTag() => Container(
       ),
     );
 
-Widget buildComboTag() => Container(
+Widget buildTag(String tag, Color tagCntColor, Color tagTxtColor) => Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(3.5),
-        color: Colors.green[100],
+        borderRadius: BorderRadius.circular(5.0),
+        color: tagCntColor.withOpacity(0.45),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(3.5),
+        padding: const EdgeInsets.all(3.0),
         child: Text(
-          " Assured ",
+          tag,
           style: GoogleFonts.lora(
             textStyle: TextStyle(
+              fontSize: 12.00,
               fontStyle: FontStyle.italic,
-              color: assuredCTextColor,
+              color: tagTxtColor,
             ),
           ),
         ),
