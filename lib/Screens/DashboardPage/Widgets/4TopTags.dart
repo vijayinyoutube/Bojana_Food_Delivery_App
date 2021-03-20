@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 Widget buildTopSearchTags() => Container(
       height: 25,
       child: ListView(
+        physics: BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         children: [
           buildTag("Cusines"),
